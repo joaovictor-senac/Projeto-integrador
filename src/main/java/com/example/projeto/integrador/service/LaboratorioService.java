@@ -6,11 +6,11 @@ import java.util.List;
 
 public interface LaboratorioService {
 
-  Laboratorio Salvar(Laboratorio laboratorio);
+  Laboratorio salvar(Laboratorio laboratorio);
 
-  Laboratorio  Editar(Laboratorio laboratorio);
+  Laboratorio  editar(Laboratorio laboratorio);
 
-  Laboratorio Excluir(Laboratorio laboratorio);
+  Laboratorio excluir(Laboratorio laboratorio);
 
-  List<Laboratorio> Listar();
+  List<Laboratorio> listar();
 }

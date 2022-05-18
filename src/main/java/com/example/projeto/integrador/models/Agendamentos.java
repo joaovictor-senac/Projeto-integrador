@@ -20,13 +20,11 @@ public class Agendamentos {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  @Column(name = "datainicio")
+  @Column(name = "dataInicio")
   private LocalDate horaLocal;
 
   @Column(name = "nomeAgendamentos")
   private String nomeAgendamentos;
-
-  @Column(name = "laboratorio")
 
   @Transient
   private Laboratorio laboratorio;
@@ -34,7 +32,7 @@ public class Agendamentos {
   @Transient
   private Curso curso;
 
-  @Transient
+  @Column(name = "numeroDoLaboratorio")
   private Integer numeroLaboratorio;
 
   @Column(name = "horaInicial")

@@ -2,9 +2,11 @@ package com.example.projeto.integrador.service;
 
 import com.example.projeto.integrador.models.Curso;
 import com.example.projeto.integrador.reporsitories.CursoReporsitoy;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class CursoServiceImpl implements CursoService {
 
   final CursoReporsitoy cursoReporsitoy;

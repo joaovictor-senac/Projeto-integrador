@@ -2,31 +2,41 @@ package com.example.projeto.integrador.controllers;
 
 import com.example.projeto.integrador.models.Agendamentos;
 import com.example.projeto.integrador.service.AgendamentosServiceImpl;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
-@Service
 @RestController
 @RequestMapping(value = "/agendamentos")
 public class AgendamentosController {
+  final AgendamentosServiceImpl agendamentosServiceImpl;
 
-  final AgendamentosServiceImpl agendamentosServices;
-
-  public AgendamentosController(AgendamentosServiceImpl agendamentosServices) {
-    this.agendamentosServices = agendamentosServices;
+  public AgendamentosController(AgendamentosServiceImpl agendamentosServiceImpl) {
+    this.agendamentosServiceImpl = agendamentosServiceImpl;
   }
-
 
   @PostMapping
-  public ResponseEntity<Object> salvarAgendamentos(@RequestBody Agendamentos agendametos){
-    Agendamentos response = agendamentosServices.Salvar(agendametos);
+  public ResponseEntity<Agendamentos> salvarCurso(@RequestBody Agendamentos agendamentos) {
+    Agendamentos response = agendamentosServiceImpl.salvar(agendamentos);
     return ResponseEntity.status(HttpStatus.CREATED).body(response);
   }
+
+  @DeleteMapping()
+  public void deleteAgendamentos(Long id) {
+    agendamentosServiceImpl.excluir(id);
+  }
+
+  @GetMapping
+  public List<Agendamentos> buscarAgendamentos() {
+    return agendamentosServiceImpl.listar();
+  }
+
+  @PutMapping
+  public void atualizarAgendamentos(@RequestBody Agendamentos agendamentos) {
+    agendamentosServiceImpl.editar(agendamentos);
+  }
+
 }

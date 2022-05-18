@@ -2,9 +2,11 @@ package com.example.projeto.integrador.service;
 
 import com.example.projeto.integrador.models.Laboratorio;
 import com.example.projeto.integrador.reporsitories.LaboratorioReporsitory;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class LaboratorioServiceImpl implements LaboratorioService {
 
   final LaboratorioReporsitory laboratorioReporsitory;
@@ -15,22 +17,22 @@ public class LaboratorioServiceImpl implements LaboratorioService {
 
 
   @Override
-  public Laboratorio Salvar(Laboratorio laboratorio) {
+  public Laboratorio salvar(Laboratorio laboratorio) {
     return laboratorioReporsitory.save(laboratorio);
   }
 
   @Override
-  public Laboratorio Editar(Laboratorio laboratorio) {
+  public Laboratorio editar(Laboratorio laboratorio) {
     return null;
   }
 
   @Override
-  public Laboratorio Excluir(Laboratorio laboratorio) {
+  public Laboratorio excluir(Laboratorio laboratorio) {
     return null;
   }
 
   @Override
-  public List<Laboratorio> Listar() {
+  public List<Laboratorio> listar() {
     return laboratorioReporsitory.findAll();
   }
 }

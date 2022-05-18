@@ -5,14 +5,15 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
+
 public interface AgendamentosService {
 
-  Agendamentos Salvar(Agendamentos agendamentos);
+  Agendamentos salvar(Agendamentos agendamentos);
 
-  Agendamentos Excluir(Agendamentos agendamentos);
+  void excluir(Long id);
 
-  Agendamentos Editar(Agendamentos agendamentos);
+  Agendamentos editar(Agendamentos agendamentos);
 
-  List <Agendamentos> Listar();
+  List <Agendamentos> listar();
+
 }

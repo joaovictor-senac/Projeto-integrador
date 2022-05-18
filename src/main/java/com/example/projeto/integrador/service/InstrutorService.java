@@ -6,14 +6,14 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
+
 public interface InstrutorService {
-  Instrutor Salvar(Instrutor instrutor);
+  Instrutor salvar(Instrutor instrutor);
 
-  Instrutor Editar(Instrutor instrutor);
+  Instrutor editar(Instrutor instrutor);
 
-  Instrutor Excluir(Instrutor instrutor);
+  Instrutor excluir(Instrutor instrutor);
 
-  List <Instrutor> Listar();
+  List <Instrutor> listar(Instrutor instrutor);
 
 }
