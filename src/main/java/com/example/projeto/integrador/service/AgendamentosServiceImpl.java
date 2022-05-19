@@ -36,6 +36,4 @@ public class AgendamentosServiceImpl implements AgendamentosService {
     return agendamentosReporsitory.findAll();
   }
 
-
-
 }

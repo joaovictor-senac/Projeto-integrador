@@ -15,5 +15,4 @@ public interface AgendamentosService {
   Agendamentos editar(Agendamentos agendamentos);
 
   List <Agendamentos> listar();
-
 }
