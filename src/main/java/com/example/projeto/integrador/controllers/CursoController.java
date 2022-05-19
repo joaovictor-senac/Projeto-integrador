@@ -35,6 +35,9 @@ public class CursoController {
     return cursoServiceImpl.listar();
   }
 
-
+  @PutMapping
+  public void atualizarCurso(@RequestBody Curso curso) {
+    cursoServiceImpl.editar(curso);
+  }
 
 }

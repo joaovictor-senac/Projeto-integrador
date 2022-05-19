@@ -1,13 +1,13 @@
 package com.example.projeto.integrador.controllers;
 
+import com.example.projeto.integrador.models.Curso;
 import com.example.projeto.integrador.models.Instrutor;
 import com.example.projeto.integrador.service.IntrutorServiceImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/instrutor")
@@ -22,5 +22,20 @@ public class InstrutorController {
   public ResponseEntity<Instrutor> salvarCurso(@RequestBody Instrutor Instrutor) {
     Instrutor response = intrutorService.salvar(Instrutor);
     return ResponseEntity.status(HttpStatus.CREATED).body(response);
+  }
+
+  @DeleteMapping()
+  public void deletaInstrutor(Long id){
+    intrutorService.delete(id);
+  }
+
+  @GetMapping
+  public List<Instrutor> BuscarCurso() {
+    return intrutorService.listar();
+  }
+
+  @PutMapping
+  public void atualizarCurso(@RequestBody Instrutor instrutor) {
+    intrutorService.editar(instrutor);
   }
 }
