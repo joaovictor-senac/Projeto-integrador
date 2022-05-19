@@ -23,12 +23,12 @@ public class LaboratorioServiceImpl implements LaboratorioService {
 
   @Override
   public Laboratorio editar(Laboratorio laboratorio) {
-    return null;
+    return laboratorioReporsitory.save(laboratorio);
   }
 
   @Override
-  public Laboratorio excluir(Laboratorio laboratorio) {
-    return null;
+  public void delete(Long id) {
+    laboratorioReporsitory.deleteById(id);
   }
 
   @Override

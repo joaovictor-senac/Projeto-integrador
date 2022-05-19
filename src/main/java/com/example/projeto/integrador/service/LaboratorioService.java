@@ -10,7 +10,7 @@ public interface LaboratorioService {
 
   Laboratorio  editar(Laboratorio laboratorio);
 
-  Laboratorio excluir(Laboratorio laboratorio);
+  void delete(Long id);
 
   List<Laboratorio> listar();
 }

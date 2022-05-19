@@ -1,7 +1,6 @@
 package com.example.projeto.integrador.service;
 
 import com.example.projeto.integrador.models.Curso;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -11,7 +10,7 @@ public interface CursoService {
 
   Curso editar(Curso curso);
 
-  Curso ExcluirCurso(Curso curso);
+  void delete(Long id);
 
-  List <Curso> listar(Curso curso);
+  List <Curso> listar();
 }

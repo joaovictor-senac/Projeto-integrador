@@ -17,10 +17,10 @@ import javax.persistence.Table;
 @Table(name = "laboratorio")
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = "id")
+@EqualsAndHashCode(of = "id_laboratorio")
 public class Laboratorio {
   @Id
-  @Column(name = "id")
+  @Column(name = "id_laboratorio")
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 

@@ -22,16 +22,16 @@ public class IntrutorServiceImpl implements InstrutorService {
 
   @Override
   public Instrutor editar(Instrutor instrutor) {
-    return null;
+    return instrutorReporsitory.save(instrutor);
   }
 
   @Override
-  public Instrutor excluir(Instrutor instrutor) {
-    return null;
+  public void delete(Long id) {
+    instrutorReporsitory.deleteById(id);
   }
 
   @Override
-  public List<Instrutor> listar(Instrutor instrutor) {
+  public List<Instrutor> listar() {
     return instrutorReporsitory.findAll();
   }
 }

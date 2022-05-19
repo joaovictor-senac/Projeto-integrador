@@ -12,11 +12,11 @@ import  java.time.LocalDate;
 @Table(name = "agendamentos")
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = "id")
+@EqualsAndHashCode(of = "id_agendamentos")
 public class Agendamentos {
 
   @Id
-  @Column(name = "id")
+  @Column(name = "id_agendamentos")
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
@@ -26,10 +26,22 @@ public class Agendamentos {
   @Column(name = "nomeAgendamentos")
   private String nomeAgendamentos;
 
-  @Transient
+  @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH, CascadeType.PERSIST}, fetch = FetchType.LAZY)
+  @JoinTable(name = "agendamentos_instrutor",
+          joinColumns = @JoinColumn(name = "id_instrutor"),
+          inverseJoinColumns = @JoinColumn(name = "id_agendamentos"))
+  private Instrutor instrutor;
+
+  @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH, CascadeType.PERSIST}, fetch = FetchType.LAZY)
+  @JoinTable(name = "agendamentos_laboratorio",
+          joinColumns = @JoinColumn(name = "id_laboratorio"),
+          inverseJoinColumns = @JoinColumn(name = "id_agendamentos"))
   private Laboratorio laboratorio;
 
-  @Transient
+  @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH, CascadeType.PERSIST}, fetch = FetchType.LAZY)
+  @JoinTable(name = "agendamentos_curso",
+          joinColumns = @JoinColumn(name = "id_curso"),
+          inverseJoinColumns = @JoinColumn(name = "id_agendamentos"))
   private Curso curso;
 
   @Column(name = "numeroDoLaboratorio")

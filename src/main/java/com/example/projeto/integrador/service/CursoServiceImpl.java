@@ -22,16 +22,16 @@ public class CursoServiceImpl implements CursoService {
 
   @Override
   public Curso editar(Curso curso) {
-    return null;
+    return cursoReporsitoy.save(curso);
   }
 
   @Override
-  public Curso ExcluirCurso(Curso curso) {
-    return null;
+   public void delete(Long id) {
+    cursoReporsitoy.deleteById(id);
   }
 
   @Override
-  public List <Curso> listar(Curso curso) {
+  public List <Curso> listar() {
     return cursoReporsitoy.findAll();
   }
 
