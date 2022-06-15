@@ -16,7 +16,11 @@ public class IntrutorServiceImpl implements InstrutorService {
   }
 
   @Override
-  public Instrutor salvar(Instrutor instrutor) {
+  public Instrutor salvar(Instrutor instrutor) throws Exception {
+    List <Instrutor> email = instrutorReporsitory.findInstrutorByEmails(instrutor.getEmails());
+    if (email != null && email.size() > 0 ) {
+      throw new Exception("esse email ja foi cadastrado" + instrutor.getEmails());
+    }
     return instrutorReporsitory.save(instrutor);
   }
 

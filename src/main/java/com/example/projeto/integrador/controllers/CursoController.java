@@ -20,7 +20,7 @@ public class CursoController {
 
 
   @PostMapping
-  public ResponseEntity<Curso> salvarCurso(@RequestBody Curso curso) {
+  public ResponseEntity <Object> salvarCurso(@RequestBody Curso curso) throws Exception {
     Curso response = cursoServiceImpl.salvar(curso);
     return ResponseEntity.status(HttpStatus.CREATED).body(response);
   }
@@ -31,8 +31,9 @@ public class CursoController {
   }
 
   @GetMapping
-  public List<Curso> BuscarCurso() {
-    return cursoServiceImpl.listar();
+  public ResponseEntity<Object> BuscarCurso() {
+    List <Curso> response = cursoServiceImpl.listar();
+    return ResponseEntity.status(HttpStatus.CREATED).body(response);
   }
 
   @PutMapping

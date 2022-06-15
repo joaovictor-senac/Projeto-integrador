@@ -1,11 +1,12 @@
 package com.example.projeto.integrador.models;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import  java.time.LocalDate;
+import java.time.LocalDate;
 
 @Entity
 @Data
@@ -21,7 +22,10 @@ public class Agendamentos {
   private Long id;
 
   @Column(name = "dataInicio")
-  private LocalDate horaLocal;
+  private LocalDate dataInicial;
+
+  @Column(name = "dataFim")
+  private LocalDate dataFim;
 
   @Column(name = "nomeAgendamentos")
   private String nomeAgendamentos;

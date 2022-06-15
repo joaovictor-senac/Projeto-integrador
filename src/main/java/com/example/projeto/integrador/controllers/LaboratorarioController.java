@@ -18,7 +18,7 @@ public class  LaboratorarioController {
     this.laboratorioService = laboratorioService;
   }
 
-  public ResponseEntity<Laboratorio> salvarCurso(@RequestBody Laboratorio laboratorio) {
+  public ResponseEntity<Object> salvarCurso(@RequestBody Laboratorio laboratorio) {
     Laboratorio response = laboratorioService.salvar(laboratorio);
     return ResponseEntity.status(HttpStatus.CREATED).body(response);
   }
@@ -29,8 +29,9 @@ public class  LaboratorarioController {
   }
 
   @GetMapping
-  public List<Laboratorio> buscarLasboratorio() {
-    return laboratorioService.listar();
+  public ResponseEntity<Object> buscarLasboratorio() {
+    List <Laboratorio> response = laboratorioService.listar();
+    return ResponseEntity.status(HttpStatus.CREATED).body(response);
   }
 
   @PutMapping

@@ -6,7 +6,7 @@ import java.util.List;
 
 
 public interface CursoService {
-  Curso salvar(Curso curso);
+  Curso salvar(Curso curso) throws Exception;
 
   Curso editar(Curso curso);
 

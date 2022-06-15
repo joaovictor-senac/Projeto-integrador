@@ -19,7 +19,7 @@ public class InstrutorController {
   }
 
   @PostMapping
-  public ResponseEntity<Instrutor> salvarCurso(@RequestBody Instrutor Instrutor) {
+  public ResponseEntity<Object> salvarCurso(@RequestBody Instrutor Instrutor) throws Exception {
     Instrutor response = intrutorService.salvar(Instrutor);
     return ResponseEntity.status(HttpStatus.CREATED).body(response);
   }
@@ -30,8 +30,9 @@ public class InstrutorController {
   }
 
   @GetMapping
-  public List<Instrutor> BuscarCurso() {
-    return intrutorService.listar();
+  public ResponseEntity<Object> BuscarCurso() {
+    List <Instrutor> response = intrutorService.listar();
+    return ResponseEntity.status(HttpStatus.CREATED).body(response);
   }
 
   @PutMapping

@@ -17,7 +17,11 @@ public class LaboratorioServiceImpl implements LaboratorioService {
 
 
   @Override
-  public Laboratorio salvar(Laboratorio laboratorio) {
+  public Laboratorio salvar(Laboratorio laboratorio) throws Exception {
+    List <Laboratorio> nome = laboratorioReporsitory.findLaboratorioByNome(laboratorio.getNome());
+    if (nome != null && nome.size() > 0 ) {
+      throw new Exception("ja foi cadatrado o laboratorio");
+    }
     return laboratorioReporsitory.save(laboratorio);
   }
 

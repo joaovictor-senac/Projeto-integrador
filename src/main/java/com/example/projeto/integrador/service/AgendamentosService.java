@@ -1,14 +1,13 @@
 package com.example.projeto.integrador.service;
 
 import com.example.projeto.integrador.models.Agendamentos;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 
 public interface AgendamentosService {
 
-  Agendamentos salvar(Agendamentos agendamentos);
+  Agendamentos salvar(Agendamentos agendamentos) throws Exception;
 
   void excluir(Long id);
 

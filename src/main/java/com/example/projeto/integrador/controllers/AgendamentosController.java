@@ -19,7 +19,7 @@ public class AgendamentosController {
   }
 
   @PostMapping
-  public ResponseEntity<Agendamentos> salvarCurso(@RequestBody Agendamentos agendamentos) {
+  public ResponseEntity<Agendamentos> salvarCurso(@RequestBody Agendamentos agendamentos) throws Exception {
     Agendamentos response = agendamentosServiceImpl.salvar(agendamentos);
     return ResponseEntity.status(HttpStatus.CREATED).body(response);
   }
@@ -30,8 +30,9 @@ public class AgendamentosController {
   }
 
   @GetMapping
-  public List<Agendamentos> buscarAgendamentos() {
-    return agendamentosServiceImpl.listar();
+  public ResponseEntity<Object> buscarAgendamentos() {
+    List <Agendamentos> response = agendamentosServiceImpl.listar();
+    return ResponseEntity.status(HttpStatus.CREATED).body(response);
   }
 
   @PutMapping
